@@ -24,8 +24,15 @@ describe('Topping', function () {
 describe('Order', function () {
   it("creates an Order object instantiated with an address", function (){
     var newOrder = new Order("123 Main Street", "Anytown", "Anystate");
-    expect(newOrder.street).to.equal("Anchovies");
-    expect(newOrder.city).to.equal("Anchovies");
-    expect(newOrder.state).to.equal("Anchovies");
+    expect(newOrder.street).to.equal("123 Main Street");
+    expect(newOrder.city).to.equal("Anytown");
+    expect(newOrder.state).to.equal("Anystate");
+  });
+  it("holds array of ordered pizzas", function (){
+    var newOrder = new Order("123 Main Street", "Anytown", "Anystate");
+    var firstPizza = new Pizza(2);
+    var secondPizza = new Pizza(4);
+    expect(newOrder.pizzas[0].pizzaSize).to.equal(1);
+    expect(newOrder.pizzas[1].pizzaSize).to.equal(1);
   });
 });
