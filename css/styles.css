@@ -21,3 +21,42 @@
 /*#toppings {
   display: none;
 }*/
+
+div.meat-choices{
+  display: none;
+}
+
+div.veggie-choices{
+  display: none;
+}
+
+div.etc-choices{
+  display: none;
+}
+
+.jumbotron {
+  background-color: white;
+  border-color: black;
+  border-width: thin;
+  border-style: dotted;
+  text-align: center;
+  padding-top: 0px;
+}
+
+.topping{
+  display: none;
+}
+
+input.address-input {
+  width: 300px;
+}
+
+div.address {
+  display: inline;
+  margin-left: 20px;
+  text-align: center;
+}
+
+div#new-address{
+  text-align: center;
+}

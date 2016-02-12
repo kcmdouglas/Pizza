@@ -10,40 +10,120 @@
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Javacript Pizza Parlor <small>It's like ordering pizza without the commitment</small></h1>
+        <h1>Javacript Pizza Parlor <small>Ordering pizza without the monetary commitment</small></h1>
       </div>
       <div class="row">
         <div class="col-md-9" id="pizza-order">
-          <form class="pizza" id="add-pizza">
-            <label for="pizza-size">What size would you like?</label>
-            <select id="size">
-              <option value="Small">Small</option>
-              <option value="Medium">Medium</option>
-              <option value="Large">Large</option>
-              <option value="Extra Large">Extra Large</option>
-            </select>
-            <div id="toppings-selection">
-              <input type="checkbox" name='toppings[]' value="Pepperoni"> Pepperoni<br>
-              <input type="checkbox" name='toppings[]' value="Anchovies"> Anchovies<br>
-            </div>
-            <button type="submit" class="btn btn-info">Add To Order</button>
-          </form>
-
-
-      </div>
+            <div class="jumbotron">
+              <h2>Add a new pizza:</h2>
+              <br>
+              <form class="pizza" id="add-pizza">
+                <label for="pizza-size"><h4>What size would you like?</h4></label>
+                <select id="size">
+                  <option value="Small">Small</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Large">Large</option>
+                  <option value="Extra Large">Extra Large</option>
+                </select>
+                <div class="row">
+                  <h3>Toppings</h3>
+                  <div class="col-md-4">
+                    <div id="meats">
+                      <button type="button" id="meat" class="btn btn-success btn-sm" aria-label="plus">  <span class="glyphicon glyphicon-plus lg" aria-hidden="true"></span></button> <label for="pizza-size"><h4>Meat</h4></label>
+                      <div class="meat-choices">
+                        <input type="checkbox" name='toppings[]' value="Pepperoni"> Pepperoni<br>
+                        <input type="checkbox" name='toppings[]' value="Anchovies"> Anchovies<br>
+                        <input type="checkbox" name='toppings[]' value="Salami"> Salami<br>
+                        <input type="checkbox" name='toppings[]' value="Sausage"> Sausage<br>
+                        <input type="checkbox" name='toppings[]' value="Venison"> Venison<br>
+                        <input type="checkbox" name='toppings[]' value="Chorizo"> Chorizo<br>
+                        <input type="checkbox" name='toppings[]' value="Chicken"> Chicken<br>
+                        <input type="checkbox" name='toppings[]' value="Bacon"> Bacon<br>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div id="veggies">
+                      <button type="button" id="veg" class="btn btn-success btn-sm" aria-label="plus">  <span class="glyphicon glyphicon-plus lg" aria-hidden="true"></span></button> <label for="pizza-size"><h4>Veggies</h4></label>
+                      <div class="veggie-choices">
+                        <input type="checkbox" name='toppings[]' value="Artichoke Hearts"> Artichoke Hearts<br>
+                        <input type="checkbox" name='toppings[]' value="Avocado"> Avocado<br>
+                        <input type="checkbox" name='toppings[]' value="Broccoli"> Broccoli<br>
+                        <input type="checkbox" name='toppings[]' value="Mushrooms"> Mushrooms<br>
+                        <input type="checkbox" name='toppings[]' value="Red Pepper"> Red Pepper<br>
+                        <input type="checkbox" name='toppings[]' value="Green Pepper"> Green Pepper<br>
+                        <input type="checkbox" name='toppings[]' value="Onions"> Onions<br>
+                        <input type="checkbox" name='toppings[]' value="Sun-dried Tomatoes"> Sun-dried Tomatoes<br>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div id="etcetera">
+                      <button type="button" id="etc" class="btn btn-success btn-sm" aria-label="plus">  <span class="glyphicon glyphicon-plus lg" aria-hidden="true"></span></button> <label for="pizza-size"><h4>Etc.</h4></label>
+                      <div class="etc-choices">
+                        <input type="checkbox" name='toppings[]' value="Basil"> Basil<br>
+                        <input type="checkbox" name='toppings[]' value="Pine Nuts"> Pine Nuts<br>
+                        <input type="checkbox" name='toppings[]' value="Garlic"> Garlic<br>
+                        <input type="checkbox" name='toppings[]' value="Cilantro"> Cilantro<br>
+                        <input type="checkbox" name='toppings[]' value="Rosemary"> Rosemary<br>
+                        <input type="checkbox" name='toppings[]' value="Baked Tofu"> Baked Tofu<br>
+                        <input type="checkbox" name='toppings[]' value="Miso Curls"> Miso Curls<br>
+                        <input type="checkbox" name='toppings[]' value="Walnuts"> Walnuts<br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-info">Add To Order</button>
+              </form>
+          </div>
+        </div>
       <div class="col-md-3" id="order-sidebar">
         <h3>Your Order:</h3>
-        <br>
         <div id="no-order">
           <h4>There seems to be nothing here! Create your very own pizza using the menu on the left.</h4>
         </div>
         <div id="entire-order">
           <span id="ordered-pizza">
           </span>
-          <span id="total-cost"></span>
+          <span id="total-cost"><h3></h3></span>
+          <button type="button" id="order-checkout" class="btn btn-success">Checkout</button>
         </div>
         <br>
       </div>
+    </div>
+    <div class="row">
+      <span id="order">
+        <div id="new-address">
+          <h3>Where's this order going?</h3>
+          <form class="order" style="margin: 5px; padding: 10px;">
+            <div class="new-address">
+              <div class="address">
+                <label for="new-street">Street</label>
+                <input type="text" class="address-input new-street">
+              </div>
+              <div class="address">
+                <label for="new-city">City</label>
+                <input type="text" class="address-input new-city">
+              </div>
+              <div class="address">
+                <label for="new-state">State</label>
+                <input type="text" class="address-input new-state">
+              </div>
+            </div>
+            <br>
+            <div id="order-instructions" style="text-align: center;">
+              <label for="new-street">Special Instructions</label>
+              <br>
+              <textarea rows="4" cols="50" id="instructions">
+              </textarea>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Send Me Some 'Za</button>
+          </form>
+        </div>
+      </span>
     </div>
   </body>
 </html>
