@@ -1,10 +1,10 @@
 describe('Pizza', function () {
   it("creates a pizza object with a given size", function (){
-    var newPizza = new Pizza(1);
-    expect(newPizza.pizzaSize).to.equal(1);
+    var newPizza = new Pizza("Small");
+    expect(newPizza.pizzaSize).to.equal("Small");
   });
   it("holds an array of toppings for each pizza", function (){
-    var newPizza = new Pizza(1);
+    var newPizza = new Pizza("Small");
     var firstTopping = new Topping("Peppers");
     var secondTopping = new Topping("Onions");
     newPizza.toppings.push(firstTopping);
@@ -30,9 +30,11 @@ describe('Order', function () {
   });
   it("holds array of ordered pizzas", function (){
     var newOrder = new Order("123 Main Street", "Anytown", "Anystate");
-    var firstPizza = new Pizza(2);
-    var secondPizza = new Pizza(4);
-    expect(newOrder.pizzas[0].pizzaSize).to.equal(1);
-    expect(newOrder.pizzas[1].pizzaSize).to.equal(1);
+    var firstPizza = new Pizza("Medium");
+    var secondPizza = new Pizza("Extra Large");
+    newOrder.pizzas.push(firstPizza);
+    newOrder.pizzas.push(secondPizza);
+    expect(newOrder.pizzas[0].pizzaSize).to.equal("Medium");
+    expect(newOrder.pizzas[1].pizzaSize).to.equal("Extra Large");
   });
 });
