@@ -37,6 +37,10 @@ Pizza.prototype.cost = function () {
   return totalCost;
 };
 
+Order.prototype.fullAddress = function () {
+  return this.street + ", " + this.city + ", " + this.state + "<br> <br> '" + this.instructions + "'";
+}
+
 function resetFields() {
   document.getElementById("add-pizza").reset();
   $("div.meat-choices").hide("slow");
@@ -46,6 +50,7 @@ function resetFields() {
 
 $(document).ready(function() {
   var newOrder = new Order("", "", "");
+  $("div#pizza-order-and-display").show();
 
   $("button#meat").click(function () {
     $("div.meat-choices").slideToggle("slow");
@@ -89,21 +94,41 @@ $(document).ready(function() {
     });
     newOrder.pizzas.forEach(function (pizza) {
       totalCost += pizza.cost();
-    resetFields();
     });
+    resetFields();
     $("span#total-cost h3").text("Total: $" + totalCost + "");
   });
 
   $("button#order-checkout").click(function () {
     $("span#order").slideToggle();
+    $("div#pizza-order-and-display").hide();
   });
 
-  $("form#order").submit(function (event){
-    newOrder.street = $(this).find("input.new-street").val();
-    newOrder.city = $(this).find("input.new-city").val();
-    newOrder.state = $(this).find("input.new-state").val();
-    newOrder.instructions = $(this).find("input.new-state").val();
+  $("form#order-form").submit(function (event){
+    event.preventDefault();
+    $("span#order").hide();
+    newOrder.street = $("input.new-street").val();
+    newOrder.city = $("input.new-city").val();
+    newOrder.state = $("input.new-state").val();
+    newOrder.instructions = $("textarea#instructions").val();
+    $("div#completed-order").show();
 
+    newOrder.pizzas.forEach(function (pizza) {
+      var pizzaNumber = newOrder.pizzas.indexOf(pizza);
+      $("span#completed-order-food").append("<h4>" + pizza.pizzaSize + " Pizza</h4><span id='final-topping" + pizzaNumber + "'></span>");
+      pizza.toppings.forEach(function (topping) {
+          $("span#final-topping" + pizzaNumber).append("<li>" + topping + "</li>");
+        });
+    });
+    var totalCost = 0;
+    newOrder.pizzas.forEach(function (pizza) {
+      totalCost += pizza.cost();
+    });
+    $("span#completed-order-cost").append("<h4>Total: $" + totalCost + "</h4>" + "<h4>Delivery cost: $3.00</h4> <h4>Grand Total: $" + (totalCost + 3) + "</h4>");
+    $("span#completed-order-address").append("<h4>" + newOrder.fullAddress() + "</h4>");
   });
 
+  $("button#refresh").click(function () {
+    location.reload();
+  });
 });

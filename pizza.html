@@ -12,7 +12,7 @@
       <div class="page-header">
         <h1>Javacript Pizza Parlor <small>Ordering pizza without the monetary commitment</small></h1>
       </div>
-      <div class="row">
+      <div class="row" id="pizza-order-and-display">
         <div class="col-md-9" id="pizza-order">
             <div class="jumbotron">
               <h2>Add a new pizza:</h2>
@@ -97,19 +97,19 @@
       <span id="order">
         <div id="new-address">
           <h3>Where's this order going?</h3>
-          <form id="order" style="margin: 5px; padding: 10px;">
+          <form id="order-form" style="margin: 5px; padding: 10px;">
             <div class="new-address">
               <div class="address">
                 <label for="new-street">Street</label>
-                <input type="text" class="address-input new-street">
+                <input type="text" class="address-input new-street" required>
               </div>
               <div class="address">
                 <label for="new-city">City</label>
-                <input type="text" class="address-input new-city">
+                <input type="text" class="address-input new-city" required>
               </div>
               <div class="address">
                 <label for="new-state">State</label>
-                <input type="text" class="address-input new-state">
+                <input type="text" class="address-input new-state" required>
               </div>
             </div>
             <br>
@@ -124,6 +124,16 @@
           </form>
         </div>
       </span>
+      <div id="completed-order">
+        <h2>Thanks for your order!</h2>
+        <span id="completed-order-food"></span>
+        <br>
+        <span id="completed-order-cost"></span>
+        <br>
+        <span id="completed-order-address"></span>
+        <br>
+        <button type="button" id="refresh" class="btn btn-success">New Order?</button>
+      </div>
     </div>
   </body>
 </html>

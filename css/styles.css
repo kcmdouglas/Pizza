@@ -64,3 +64,16 @@ div#new-address{
 span#order {
   display: none;
 }
+
+div#pizza-order-and-display {
+  display: none;
+}
+
+div#completed-order {
+  display: none;
+  text-align: center;
+}
+
+span#completed-order-cost{
+  display: inline;
+}
