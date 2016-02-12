@@ -7,8 +7,10 @@ function Topping(name) {
   this.name = name;
 }
 
-function Order(address) {
-  this.address = address;
+function Order(street, city, state) {
+  this.street = street;
+  this.city = city;
+  this.state = state;
   this.pizzas = [];
 }
 

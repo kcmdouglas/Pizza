@@ -9,8 +9,8 @@ describe('Pizza', function () {
     var secondTopping = new Topping("Onions");
     newPizza.toppings.push(firstTopping);
     newPizza.toppings.push(secondTopping);
-    expect(newPizza.toppings[0].name).to.equal("Onions");
-    expect(newPizza.toppings[1].name).to.equal("Pepperoni");
+    expect(newPizza.toppings[0].name).to.equal("Peppers");
+    expect(newPizza.toppings[1].name).to.equal("Onions");
   });
 });
 
@@ -22,6 +22,10 @@ describe('Topping', function () {
 });
 
 describe('Order', function () {
-  it("", function (){
+  it("creates an Order object instantiated with an address", function (){
+    var newOrder = new Order("123 Main Street", "Anytown", "Anystate");
+    expect(newOrder.street).to.equal("Anchovies");
+    expect(newOrder.city).to.equal("Anchovies");
+    expect(newOrder.state).to.equal("Anchovies");
   });
 });
