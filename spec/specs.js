@@ -12,6 +12,14 @@ describe('Pizza', function () {
     expect(newPizza.toppings[0].name).to.equal("Peppers");
     expect(newPizza.toppings[1].name).to.equal("Onions");
   });
+  it("cost method uses algorithm to give total cost of a pizza", function (){
+    var newPizza = new Pizza("Small");
+    var firstTopping = new Topping("Peppers");
+    var secondTopping = new Topping("Onions");
+    newPizza.toppings.push(firstTopping);
+    newPizza.toppings.push(secondTopping);
+    expect(newPizza.cost()).to.equal(9);
+  });
 });
 
 describe('Topping', function () {
