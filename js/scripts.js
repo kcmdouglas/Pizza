@@ -3,8 +3,8 @@ function Pizza(pizzaSize) {
   this.toppings = [];
 }
 
-function Topping(name) {
-  this.name = name;
+function Topping(toppingType) {
+  this.toppingType = toppingType;
 }
 
 function Order(street, city, state) {
@@ -37,27 +37,32 @@ Pizza.prototype.cost = function () {
 };
 
 $(document).ready(function() {
+  var newOrder = new Order("", "", "");
   $("form#add-pizza").submit(function (event){
     event.preventDefault();
 
     var inputtedSize = $("select#size").val();
+    var inputtedToppings = [];
     var newPizza = new Pizza(inputtedSize);
-    $("input[name='toppings[]']:checked").each(function () {
-      var toppingName = $(this).val();
-      newPizza.toppings.push(toppingName);
+    $.each($("input[name='toppings[]']:checked"), function() {
+      inputtedToppings.push($(this).val());
     });
 
-    var newOrder = new Order("", "", "");
+    inputtedToppings.forEach(function(topping) {
+      newPizza.toppings.push(topping);
+    });
+
 
     newOrder.pizzas.push(newPizza);
-
     $("div#no-order").hide();
     $("div#entire-order").show();
-    var totalCost = 0;
-    newOrder.pizzas.forEach(function(pizza) {
-      $("div#entire-order").append("<ul><h4>" + pizza.pizzaSize + " Pizza</ul>");
-      // totalCost += cost(pizza);
+    var pizzaNumber = newOrder.pizzas.indexOf(newPizza);
+    $("span#ordered-pizza").append("<h4>" + newPizza.pizzaSize + " Pizza</h4><span id=toppings" + pizzaNumber + "></span>");
+    newPizza.toppings.forEach(function (topping) {
+        $("span#toppings" + pizzaNumber).append("<li>" + topping + "</li>");
     });
   });
-  // $("div#entire-order").append("<ul><h3>Total: $" + totalCost + "</ul>");
+
+
+  $("div#entire-order").append("<ul><h3>Total: $" + totalCost + "</ul>");
 });

@@ -9,8 +9,8 @@ describe('Pizza', function () {
     var secondTopping = new Topping("Onions");
     newPizza.toppings.push(firstTopping);
     newPizza.toppings.push(secondTopping);
-    expect(newPizza.toppings[0].name).to.equal("Peppers");
-    expect(newPizza.toppings[1].name).to.equal("Onions");
+    expect(newPizza.toppings[0].toppingType).to.equal("Peppers");
+    expect(newPizza.toppings[1].toppingType).to.equal("Onions");
   });
   it("cost method uses algorithm to give total cost of a pizza", function (){
     var newPizza = new Pizza("Small");
@@ -18,14 +18,14 @@ describe('Pizza', function () {
     var secondTopping = new Topping("Onions");
     newPizza.toppings.push(firstTopping);
     newPizza.toppings.push(secondTopping);
-    expect(newPizza.cost()).to.equal(9);
+    expect(newPizza.cost()).to.equal(11);
   });
 });
 
 describe('Topping', function () {
   it("creates a topping object with a name", function (){
     var newTopping = new Topping("Anchovies");
-    expect(newTopping.name).to.equal("Anchovies");
+    expect(newTopping.toppingType).to.equal("Anchovies");
   });
 });
 
