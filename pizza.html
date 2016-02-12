@@ -13,18 +13,18 @@
         <h1>Javacript Pizza Parlor <small>It's like ordering pizza without the commitment</small></h1>
       </div>
       <div class="row">
-        <div class="col-md-9" id="pizzaOrdering">
-          <form class="pizza">
+        <div class="col-md-9" id="pizza-order">
+          <form class="pizza" id="add-pizza">
             <label for="pizza-size">What size would you like?</label>
-            <select name="size">
+            <select id="size">
               <option value="1">Small</option>
               <option value="2">Medium</option>
               <option value="3">Large</option>
               <option value="4">Extra Large</option>
             </select>
             <div id="toppings">
-              <input type="checkbox" value="Pepperoni"> Pepperoni<br>
-              <input type="checkbox" value="Anchovies"> Anchovies<br>
+              <input type="checkbox" name='toppings[]' value="Pepperoni"> Pepperoni<br>
+              <input type="checkbox" name='toppings[]' value="Anchovies"> Anchovies<br>
             </div>
             <button type="submit" class="btn btn-info">Add To Order</button>
           </form>
