@@ -8,6 +8,6 @@ describe('Pizza', function () {
 describe('Topping', function () {
   it("creates a topping object with a name", function (){
     var newTopping = new Topping("Anchovies");
-    expect(newTopping.name).to.equal("Mushrooms");
+    expect(newTopping.name).to.equal("Anchovies");
   });
 });

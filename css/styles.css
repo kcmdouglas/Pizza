@@ -1,0 +1,15 @@
+#order-sidebar.affix-top {
+  position: static;
+  margin-top:30px;
+  width:228px;
+}
+
+#order-sidebar.affix {
+  position: fixed;
+  top:70px;
+  width:228px;
+}
+
+#order-sidebar {
+  background-color: #EBEDEF;
+}

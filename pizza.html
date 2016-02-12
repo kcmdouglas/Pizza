@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet"  type="text/css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Title</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Javacript Pizza Parlor <small>It's like ordering pizza without the commitment</small></h1>
+      </div>
+      <div class="row">
+        <div class="col-md-9" id="pizzaOrdering">
+          <form class="pizza">
+            <label for="pizza-size">What size would you like?</label>
+            <select name="size">
+              <option value="1">Small</option>
+              <option value="2">Medium</option>
+              <option value="3">Large</option>
+              <option value="4">Extra Large</option>
+            </select>
+            <div id="toppings">
+              <input type="checkbox" value="Pepperoni"> Pepperoni<br>
+              <input type="checkbox" value="Anchovies"> Anchovies<br>
+            </div>
+            <button type="submit" class="btn btn-info">Add To Order</button>
+          </form>
+
+
+      </div>
+      <div class="col-md-3" id="order-sidebar">
+        <h3>Your Order:</h3>
+        <br>
+        <div id="no-order">
+          <h4>There seems to be nothing here! Create your very own pizza using the menu on the left.</h4>
+        </div>
+        <div id="entire-order">
+
+        </div>
+        <br>
+      </div>
+    </div>
+  </body>
+</html>
