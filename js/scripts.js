@@ -25,8 +25,15 @@ $(document).ready(function() {
       newPizza.toppings.push(toppingName);
     });
 
+    var newOrder = new Order("", "", "");
 
-    $("div#entire-order").append("<li><span class='ordered-pizza'>" + newContact.fullName() + "</span></li>");
+    newOrder.pizzas.push(newPizza);
 
+    $("div#no-order").hide();
+    $("div#entire-order").show();
+    newOrder.pizzas.forEach(function(pizza) {
+      $("div#entire-order").append("<ul><h4>" + pizza.pizzaSize + " Pizza</ul>");
+    });
+    
   });
 });

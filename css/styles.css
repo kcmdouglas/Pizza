@@ -13,3 +13,7 @@
 #order-sidebar {
   background-color: #EBEDEF;
 }
+
+#entire-order {
+  display: none;
+}
