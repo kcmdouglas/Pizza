@@ -7,10 +7,11 @@ function Topping(toppingType) {
   this.toppingType = toppingType;
 }
 
-function Order(street, city, state) {
+function Order(street, city, state, instructions) {
   this.street = street;
   this.city = city;
   this.state = state;
+  this.instructions = instructions;
   this.pizzas = [];
 }
 
@@ -93,6 +94,16 @@ $(document).ready(function() {
     $("span#total-cost h3").text("Total: $" + totalCost + "");
   });
 
-  $()
+  $("button#order-checkout").click(function () {
+    $("span#order").slideToggle();
+  });
+
+  $("form#order").submit(function (event){
+    newOrder.street = $(this).find("input.new-street").val();
+    newOrder.city = $(this).find("input.new-city").val();
+    newOrder.state = $(this).find("input.new-state").val();
+    newOrder.instructions = $(this).find("input.new-state").val();
+
+  });
 
 });

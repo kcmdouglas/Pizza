@@ -31,13 +31,14 @@ describe('Topping', function () {
 
 describe('Order', function () {
   it("creates an Order object instantiated with an address", function (){
-    var newOrder = new Order("123 Main Street", "Anytown", "Anystate");
+    var newOrder = new Order("123 Main Street", "Anytown", "Anystate", "Beware of Dog");
     expect(newOrder.street).to.equal("123 Main Street");
     expect(newOrder.city).to.equal("Anytown");
     expect(newOrder.state).to.equal("Anystate");
+    expect(newOrder.instructions).to.equal("Beware of Dog");
   });
   it("holds array of ordered pizzas", function (){
-    var newOrder = new Order("123 Main Street", "Anytown", "Anystate");
+    var newOrder = new Order("123 Main Street", "Anytown", "Anystate", "Instructions");
     var firstPizza = new Pizza("Medium");
     var secondPizza = new Pizza("Extra Large");
     newOrder.pizzas.push(firstPizza);

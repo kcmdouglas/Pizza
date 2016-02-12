@@ -60,3 +60,7 @@ div.address {
 div#new-address{
   text-align: center;
 }
+
+span#order {
+  display: none;
+}
