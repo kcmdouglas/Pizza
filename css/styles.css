@@ -77,3 +77,11 @@ div#completed-order {
 span#completed-order-cost{
   display: inline;
 }
+span#ordered-pizza h4 {
+  cursor: pointer;
+  color: #12ABD8;
+}
+
+span#ordered-pizza h4:hover{
+  text-decoration: underline;
+}
