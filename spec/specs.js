@@ -46,4 +46,8 @@ describe('Order', function () {
     expect(newOrder.pizzas[0].pizzaSize).to.equal("Medium");
     expect(newOrder.pizzas[1].pizzaSize).to.equal("Extra Large");
   });
+  it("adds the fullAddress method to all orders", function() {
+    var testOrder = new Order("123 Main St.", "Anytown", "Anystate", "Instructions");
+    expect(testOrder.fullAddress()).to.equal("123 Main St., Anytown, Anystate<br> <br> 'Instructions'");
+  });
 });
